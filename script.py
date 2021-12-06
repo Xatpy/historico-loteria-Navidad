@@ -66,10 +66,18 @@ def write_output(list, year):
 
 
 def write_numbers(list, year):
-    file = f"out/{year}_numbers.txt"
+    file = f"out/{year}_numbers.json"
     textfile = open(file, "w")
+    head = '{"year": "' + str(year) + '", "numbers": ['
+    textfile.write(head)
     for number in list:
-        textfile.write(number.number + " " + number.amount + "\n")
+        numberJson = '{"n": "' + number.number + '", "p": "' + number.amount + '"}'
+        if number != list[-1]:
+            numberJson += ","
+        textfile.write(numberJson)
+        #textfile.write(number.number + " " + number.amount + "\n")
+    close = "]}"
+    textfile.write(close)
     textfile.close()
     print(f"Written file: {file}")
 
@@ -93,7 +101,7 @@ def process_page(pageObj, cleaned_list, unclassified):
 
 
 def main():
-    year = "2019"
+    year = "2020"
     pdfFileObj = open(f'data/lista-loteria-navidad-{year}.pdf', 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages
@@ -104,7 +112,7 @@ def main():
     for number in range(num_pages):
         pageObj = pdfReader.getPage(number)
         process_page(pageObj, cleaned_list, unclassified)
-    
+
     write_numbers(cleaned_list, year)
     write_output(unclassified, year)
 
