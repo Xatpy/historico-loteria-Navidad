@@ -42,9 +42,9 @@ def get_big_prize(cleaned_item, cleaned_list):
     first_prize = cleaned_item[index + + len(separator):index + len(separator) + 4]
     cleaned_list.append(Numero(first_number, first_prize))
 
-    first_part = first_number[0] == "0"
+    is_el_gordo = "1.250.000" in cleaned_item or "4.000.000" in cleaned_item
 
-    iter = cleaned_item[index + len(separator) + (4 if first_part else 5):]
+    iter = cleaned_item[index + len(separator) + (5 if is_el_gordo else 4):]
     big_number = iter[:5]
     big_prize = iter[5:iter.find(separator) - 5]
     cleaned_list.append(Numero(big_number, big_prize))
@@ -54,7 +54,6 @@ def get_big_prize(cleaned_item, cleaned_list):
     second_number = second_part[:5]
     second_prize = second_part[len(second_part) - 4:]
     cleaned_list.append(Numero(second_number, second_prize))
-    #print(cleaned_item)
 
 
 def write_output(list, year):
@@ -94,11 +93,11 @@ def process_page(pageObj, cleaned_list, unclassified):
 
 
 def main():
-    year = "2018"
+    year = "2020"
     pdfFileObj = open(f'data/lista-loteria-navidad-{year}.pdf', 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages
-    print(str(num_pages))
+    print(f"Number of pages: {str(num_pages)}")
 
     cleaned_list = []
     unclassified = []
