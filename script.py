@@ -101,7 +101,7 @@ def process_page(pageObj, cleaned_list, unclassified):
 
 
 def main():
-    year = "2020"
+    year = "2018"
     pdfFileObj = open(f'data/lista-loteria-navidad-{year}.pdf', 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages
