@@ -13,9 +13,11 @@
     <h1>Histórico de la lotería de Navidad</h1>
 
     <div id="main">
-        <input inputmode="numeric" pattern=".{10}" id="numberToSearch"/>
+        <input inputmode="numeric" pattern=".{10}"  maxlength="5" id="numberToSearch"/>
         <br />
         <button type="text" onclick="search()" id="btnSearch">Buscar</button>
+        <br />
+        <span id="errorMessage" class="hide">Por favor inserte un número válido</span>
         <br />
         <div id="results"></div>
     </div>

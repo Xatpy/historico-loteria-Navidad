@@ -5,7 +5,6 @@ window.onload = () => {
 let listNumbers = {};
 
 async function loadNumbersData() {
-    //const jsonData = await  fetchJson(jsonUrl);
     const listOfJsons = [
         "out/2020_numbers.json",
         "out/2019_numbers.json"
@@ -51,8 +50,30 @@ async function tellJoke() {
     return data.value.joke;
 }
 
+const toggleErrorMessage = (hasError) => {
+    let elem = document.getElementById("errorMessage");
+    elem.classList.add(hasError ? "show" : "hide");
+    elem.classList.remove(hasError ? "hide" : "show");
+}
+
+const isNum = (val) => {
+    return !isNaN(val)
+}
+
 const search = () => {
-    const value = document.getElementById("numberToSearch").value;
+    let value = document.getElementById("numberToSearch").value;
+
+    if (value === "" || !isNum(value)) {
+        toggleErrorMessage(true);
+        return;
+    }
+
+    toggleErrorMessage(false);
+
+    value = value.toString().padStart(5, '0');
+    document.getElementById("numberToSearch").value = value;
+
+
     console.log("Valor", value);
 
     const resultsDiv = document.getElementById("results");
