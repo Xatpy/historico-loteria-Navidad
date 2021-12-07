@@ -26,7 +26,6 @@ async function loadNumbersData() {
             
             listNumbers[num].push(obj);
         });
-        console.log("aaaaa", jsonData);
 
         listNumbers[jsonData.year] = jsonData.numbers;
     }

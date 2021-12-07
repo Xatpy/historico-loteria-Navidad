@@ -5,15 +5,32 @@
 body {
     padding: 0;
     margin: 0;
-    
+}
+
+h1, h3{
+    text-align: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+}
+
+.interactable {
+    margin: auto;
+    display: block;
+}
+
+.divInteractable {
+    padding: 20px;
 }
 
 #btnSearch {
-    margin: 10px;
     cursor: pointer;
 }
 
 #numberToSearch {
+
     text-align: center;
 }
 
