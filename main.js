@@ -80,7 +80,6 @@ const search = () => {
 
     const foundNumber = listNumbers[value];
     if (foundNumber) {
-        debugger
         console.log("Existe el ", value);
         let ul = document.createElement('ul');
         foundNumber.forEach(number => {

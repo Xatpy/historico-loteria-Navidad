@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico lotería Navidad</title>
+    <title>Histórico Lotería Navidad</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
 
     <script src="./main.js"></script>
     <link rel="stylesheet" href="./styles.css">
@@ -20,10 +22,10 @@
                 <label>Número:
                     <input inputmode="numeric" pattern=".{10}"  maxlength="5" id="numberToSearch"/>
                 </label>
-                <button type="text" onclick="search()" id="btnSearch">Buscar</button>
+                <button type="text" onclick="search()" id="btnSearch" class="button button2">Buscar 🔎</button>
             </div>
             <div class="divError">
-                <span id="errorMessage" class="hide">Por favor inserte un número válido</span>
+                <span id="errorMessage" class="hide">Por favor inserte un número válido.</span>
             </div>
             <br />
             <div id="divResults">
@@ -36,8 +38,6 @@
             </div>
         </main>
 
-
-        
     </div>
 
 </body>
