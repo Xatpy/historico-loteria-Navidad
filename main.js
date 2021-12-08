@@ -7,7 +7,11 @@ let listNumbers = {};
 async function loadNumbersData() {
     const listOfJsons = [
         "out/2020_numbers.json",
-        "out/2019_numbers.json"
+        "out/2019_numbers.json",
+        "out/2018_numbers.json",
+        "out/2017_numbers.json",
+        "out/2016_numbers.json",
+        "out/2015_numbers.json"
     ]
     for (let i = 0; i < listOfJsons.length; ++i) {
         const jsonData = await fetchJson(listOfJsons[i]);
@@ -20,11 +24,11 @@ async function loadNumbersData() {
                 year: year,
                 prize: prize
             }
-            if (listNumbers[num] === undefined) {
-                listNumbers[num] = [];
+            if (listNumbers[year] === undefined) {
+                listNumbers[year] = [];
             }
-            
-            listNumbers[num].push(obj);
+
+            listNumbers[year].push(obj);
         });
 
         listNumbers[jsonData.year] = jsonData.numbers;
