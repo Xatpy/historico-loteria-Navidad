@@ -90,6 +90,9 @@ const search = () => {
             li.innerText = `${year} - ${prize}€`;
             ul.appendChild(li);
         })
+        const span = document.createElement('span');
+        span.textContent = `👍🍾¡Yay! Este número fue premiado ${foundNumber.length > 1 ? "los años": "el año"}:`;
+        resultsDiv.appendChild(span);
         resultsDiv.appendChild(ul);
     } else {
         console.log("NOOOO Existe el ", value);

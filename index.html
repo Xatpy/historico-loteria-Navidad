@@ -11,22 +11,33 @@
 </head>
 <body>
     <div id="main">
-        <h1>Histórico de la lotería de Navidad</h1>
-        <h3>Comprueba si tus números de lotería fueron premiados en años anteriores</h3>
-        <div class="divInteractable">
-            <input inputmode="numeric" pattern=".{10}"  maxlength="5" id="numberToSearch" class="interactable"/>
-        </div>
-        
-        <button type="text" onclick="search()" id="btnSearch" class="interactable">Buscar</button>
+        <header>
+            <h1>Comprueba si tus números de la Lotería de Navidad fueron premiados en años anteriores</h1>
+        </header>
 
-        <span id="errorMessage" class="hide">Por favor inserte un número válido</span>
-        <br />
-        <div id="results">
-            <ul>
-                <li>2020 - 1000€</li>
-                <li>2019 - 1000€</li>
-            </ul>
-        </div>
+        <main>
+            <div class="divSearch">
+                <label>Número:
+                    <input inputmode="numeric" pattern=".{10}"  maxlength="5" id="numberToSearch"/>
+                </label>
+                <button type="text" onclick="search()" id="btnSearch">Buscar</button>
+            </div>
+            <div class="divError">
+                <span id="errorMessage" class="hide">Por favor inserte un número válido</span>
+            </div>
+            <br />
+            <div id="divResults">
+                <div id="results">
+                    <ul>
+                        <li>2020 - 1000€</li>
+                        <li>2019 - 1000€</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+
+        
     </div>
 
 </body>

@@ -7,7 +7,11 @@ body {
     margin: 0;
 }
 
-h1, h3{
+h1 {
+    background-color: #077ec2;
+    color: white;
+    margin:0;
+    padding: 30px;
     text-align: center;
 }
 
@@ -22,7 +26,14 @@ h1, h3{
 }
 
 .divInteractable {
-    padding: 20px;
+    /* padding: 20px; */
+}
+
+.divSearch {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    justify-content: center;
 }
 
 #btnSearch {
@@ -30,12 +41,30 @@ h1, h3{
 }
 
 #numberToSearch {
+    margin-left: 10px;
+    margin-right: 20px;
+}
 
-    text-align: center;
+.divError {
+    display: flex;
+    justify-content: center;
 }
 
 #errorMessage {
     color: red;
+
+}
+
+#divResults {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#results {
+    border-radius: 25px;
+    border: 2px solid #077ec2;
+    padding: 20px; 
 }
 
 .hide {
