@@ -1,6 +1,6 @@
 import PyPDF2
 
-YEAR = "2020"
+YEAR = "2011"
 
 class Numero:
   def __init__(self, number, amount):
@@ -20,6 +20,7 @@ def clean_headers(text):
         "y ocho mil ",
         "y ocho",
         "Once","Doce","Trece","Catorce","Quince","Dieciséis","Diecisiete","Dieciocho","Diecinueve",
+        "Veinte", "Veintiuno", "Veintidos", "Veintetres", "Veinticuatro", "Veinticinco", "Veintiseis",
         "mil","y un","y dos","y tres","y cuatro","y cinco","y seis","y siete","y ocho","y nueve",
         "Cincuenta", "Sesenta      ", "Sesenta", "Setenta", "Ochenta", "Noventa", "Cien","Noventa "
     ]
@@ -29,7 +30,8 @@ def clean_headers(text):
 
 
 def clean_row(text):
-    separators = [" . . . . . ", " . . t . . ", " . . c . . ", " . . a . . "]
+    separators = [" . . . . . ", " . . t . . ", " . . c . . ", " . . a . . ",
+                  ". . . . ."  , ". . t . ."  , ". . c . .", ". . a . .", " . . a.  . "]
     for sep in separators:
         text = text.replace(sep, "|||")
     return text
@@ -84,7 +86,7 @@ def write_numbers(list, year):
     print(f"Written file: {file}")
 
 def has_another_prize(pr):
-    return ".000EUROS" in pr
+    return ".000EUROS" in pr or ".000DE" in pr
 
 def process_page(pageObj, cleaned_list, unclassified):
     output = pageObj.extractText()
