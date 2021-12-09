@@ -1,5 +1,7 @@
 import PyPDF2
 
+YEAR = "2020"
+
 class Numero:
   def __init__(self, number, amount):
     self.number = number
@@ -106,8 +108,7 @@ def process_page(pageObj, cleaned_list, unclassified):
 
 
 def main():
-    year = "2015"
-    pdfFileObj = open(f'data/lista-loteria-navidad-{year}.pdf', 'rb')
+    pdfFileObj = open(f'data/lista-loteria-navidad-{YEAR}.pdf', 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages
     print(f"Number of pages: {str(num_pages)}")
@@ -118,8 +119,8 @@ def main():
         pageObj = pdfReader.getPage(number)
         process_page(pageObj, cleaned_list, unclassified)
 
-    write_numbers(cleaned_list, year)
-    write_output(unclassified, year)
+    write_numbers(cleaned_list, YEAR)
+    write_output(unclassified, YEAR)
 
 
 if __name__ == "__main__":
