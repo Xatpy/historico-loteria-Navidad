@@ -6,12 +6,16 @@ let listNumbers = {};
 
 async function loadNumbersData() {
     const listOfJsons = [
-        "out/2020_numbers.json",
-        "out/2019_numbers.json",
-        "out/2018_numbers.json",
-        "out/2017_numbers.json",
-        "out/2016_numbers.json",
-        "out/2015_numbers.json"
+        "./out/2020_numbers.json",
+        "./out/2019_numbers.json",
+        "./out/2018_numbers.json",
+        "./out/2017_numbers.json",
+        "./out/2016_numbers.json",
+        "./out/2015_numbers.json",
+        "./out/2014_numbers.json",
+        "./out/2013_numbers.json",
+        "./out/2012_numbers.json",
+        "./out/2011_numbers.json"
     ]
     for (let i = 0; i < listOfJsons.length; ++i) {
         const jsonData = await fetchJson(listOfJsons[i]);
@@ -71,9 +75,6 @@ const search = () => {
 
     value = value.toString().padStart(5, '0');
     document.getElementById("numberToSearch").value = value;
-
-
-    console.log("Valor", value);
 
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";
