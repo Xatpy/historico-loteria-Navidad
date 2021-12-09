@@ -81,6 +81,8 @@ def write_numbers(list, year):
     textfile.close()
     print(f"Written file: {file}")
 
+def has_another_prize(pr):
+    return ".000EUROS" in pr
 
 def process_page(pageObj, cleaned_list, unclassified):
     output = pageObj.extractText()
@@ -96,12 +98,15 @@ def process_page(pageObj, cleaned_list, unclassified):
             else:
                 if has_big_prize(cleaned_item):
                     get_big_prize(cleaned_item, cleaned_list)
+                elif has_another_prize(cleaned_item):
+                    clean_euros = cleaned_item[:cleaned_item.find("EUROS")]
+                    cleaned_list.append(Numero(clean_euros[:5], clean_euros[5:] + "EUROS"))
                 else:
                     unclassified.append(splited_item)
 
 
 def main():
-    year = "2018"
+    year = "2015"
     pdfFileObj = open(f'data/lista-loteria-navidad-{year}.pdf', 'rb')
     pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
     num_pages = pdfReader.numPages

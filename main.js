@@ -20,18 +20,14 @@ async function loadNumbersData() {
         numbers.forEach(element => {
             const num = element.n;
             const prize = element.p;
-            const obj = {
+            if (listNumbers[year] === undefined) {
+                listNumbers[year] = {}
+            }
+            listNumbers[year][num.toString()] = {
                 year: year,
                 prize: prize
-            }
-            if (listNumbers[year] === undefined) {
-                listNumbers[year] = [];
-            }
-
-            listNumbers[year].push(obj);
+            };
         });
-
-        listNumbers[jsonData.year] = jsonData.numbers;
     }
 
     console.log(listNumbers)
@@ -82,11 +78,20 @@ const search = () => {
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";
 
-    const foundNumber = listNumbers[value];
-    if (foundNumber) {
+    const list_years = [2020, 2019, 2018, 2017, 2016, 2015];
+
+    let found_numbers = []
+    let yearFound = -1;
+    list_years.forEach(year => {
+        if (listNumbers[year][value]) {
+            found_numbers.push(listNumbers[year][value]);
+        }
+    })
+
+    if (found_numbers.length > 0) {
         console.log("Existe el ", value);
         let ul = document.createElement('ul');
-        foundNumber.forEach(number => {
+        found_numbers.forEach(number => {
             const year = number.year;
             const prize = number.prize;
             let li = document.createElement("li");
@@ -94,7 +99,7 @@ const search = () => {
             ul.appendChild(li);
         })
         const span = document.createElement('span');
-        span.textContent = `👍🍾¡Yay! Este número fue premiado ${foundNumber.length > 1 ? "los años": "el año"}:`;
+        span.textContent = `👍🍾¡Yay! Este número fue premiado ${found_numbers.length > 1 ? "los años": "el año"}:`;
         resultsDiv.appendChild(span);
         resultsDiv.appendChild(ul);
     } else {
