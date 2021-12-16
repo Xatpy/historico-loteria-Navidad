@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Historico Loteria Navidad. Comprueba si tus números de la Lotería de Navidad fueron premiados en años anteriores">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Historico Loteria Navidad. Comprueba si tus números de la Lotería de Navidad fueron premiados en años anteriores"
+    />
 
     <title>Histórico Lotería Navidad</title>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>"
+    />
 
     <script src="./main.js"></script>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <div id="main">
-        <header>
-            <h1>Histórico Lotería Navidad</h1>
-        </header>
-        
-        <main>
-            <h3>Comprueba si tus números de la Lotería de Navidad fueron premiados en años anteriores</h3>
-            <div class="divSearch">
-                <label>Número:
-                    <input inputmode="numeric" pattern=".{10}"  maxlength="5" id="numberToSearch"/>
-                </label>
-                <button type="text" onclick="search()" id="btnSearch" class="button button2">Buscar 🔎</button>
-            </div>
-            <div class="divError">
-                <span id="errorMessage" class="hide">Por favor inserte un número válido.</span>
-            </div>
-            <br />
-            <div id="divResults">
-                <div id="results">
-                    <ul>
-                        <li>2020 - 1000€</li>
-                        <li>2019 - 1000€</li>
-                    </ul>
-                </div>
-            </div>
-        </main>
+      <header>
+        <h1>Histórico Lotería Navidad</h1>
+      </header>
 
+      <main>
+        <h3>
+          Comprueba si tus números de la Lotería de Navidad fueron premiados en
+          años anteriores
+        </h3>
+        <div class="divSearch">
+          <label
+            >Número:
+            <input
+              inputmode="numeric"
+              pattern=".{10}"
+              maxlength="5"
+              id="numberToSearch"
+            />
+          </label>
+          <button
+            type="text"
+            onclick="search()"
+            id="btnSearch"
+            class="button button2"
+          >
+            Buscar 🔎
+          </button>
+        </div>
+        <div class="divError">
+          <span id="errorMessage" class="hide"
+            >Por favor inserte un número válido.</span
+          >
+        </div>
+        <br />
+        <div id="divResults">
+          <div id="results">
+            <ul>
+              <li>2020 - 1000€</li>
+              <li>2019 - 1000€</li>
+            </ul>
+          </div>
+        </div>
+      </main>
     </div>
 
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q4RPPHQ48"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4Q4RPPHQ48"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
-    
+
       gtag('config', 'G-4Q4RPPHQ48');
     </script>
-</body>
+  </body>
 </html>
