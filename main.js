@@ -50,8 +50,8 @@ async function fetchJson(jsonUrl) {
 }
 
 async function tellJoke() {
-  let response = await fetch(url);
-  let data = await response.json();
+  const response = await fetch(url);
+  const data = await response.json();
   return data.value.joke;
 }
 
@@ -80,7 +80,8 @@ const search = () => {
 
   const resultsDiv = document.getElementById('results');
   resultsDiv.innerHTML = '';
-
+  resultsDiv.classList.remove('hide');
+  resultsDiv.classList.add('fade-in');
   const list_years = [2020, 2019, 2018, 2017, 2016, 2015];
 
   let found_numbers = [];
@@ -95,21 +96,36 @@ const search = () => {
     let ul = document.createElement('ul');
     found_numbers.forEach((number) => {
       const year = number.year;
-      const prize = number.prize;
+      debugger;
+      let prize = number.prize;
+      const isPremiaco = prize.includes('EUROS');
+
+      if (isPremiaco) {
+        prize = prize.replace('DE EUROS', ' DE EUROS');
+      } else {
+        prize = parseInt(number.prize) / 10; // Calculando el "décimo"
+        prize += '  €';
+      }
+
       let li = document.createElement('li');
-      li.innerText = `${year} - ${prize}€`;
+      li.innerText = `${year} : ${prize}`;
+      if (isPremiaco) {
+        li.classList.add('bigPrize');
+      } else {
+        li.classList.add('normalPrize');
+      }
       ul.appendChild(li);
     });
     const span = document.createElement('span');
-    span.textContent = `👍🍾¡Yay! Este número fue premiado ${
+    span.textContent = `👍 ¡Yay! Este número fue premiado  ${
       found_numbers.length > 1 ? 'los años' : 'el año'
-    }:`;
+    }: 🍾`;
     resultsDiv.appendChild(span);
     resultsDiv.appendChild(ul);
   } else {
     console.log('NOOOO Existe el ', value);
     const span = document.createElement('span');
-    span.innerHTML = 'Este número NUNCA ha sido premiado 🤷‍♂️👎';
+    span.innerHTML = '👎 Este número NUNCA ha sido premiado 🤷‍♂️';
     resultsDiv.appendChild(span);
   }
 };

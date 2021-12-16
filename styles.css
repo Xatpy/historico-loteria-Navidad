@@ -47,10 +47,6 @@ li {
   display: block;
 }
 
-.divInteractable {
-  /* padding: 20px; */
-}
-
 .divSearch {
   display: flex;
   flex-direction: row;
@@ -62,6 +58,8 @@ li {
   font-size: x-large;
   margin-left: 10px;
   margin-right: 20px;
+  text-align: center;
+  width: 100px;
 }
 
 .divError {
@@ -113,6 +111,40 @@ li {
 .button2:hover {
   background-color: #008cba;
   color: white;
+}
+
+.normalPrize {
+  font-weight: bold;
+}
+
+.bigPrize {
+  font-size: xx-large;
+  color: rgb(158, 1, 1);
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*
