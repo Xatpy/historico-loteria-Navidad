@@ -21,6 +21,20 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
+ul {
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
+}
+
+li {
+    margin: 0 10px 10px 0;
+}
+
 #main {
     display: flex;
     flex-direction: column;
