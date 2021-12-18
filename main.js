@@ -101,11 +101,17 @@ const search = () => {
       const isPremiaco = prize.includes('EUROS');
 
       if (isPremiaco) {
-        prize = prize.replace('DE EUROS', ' DE EUROS');
-      } else {
-        prize = parseInt(number.prize) / 10; // Calculando el "décimo"
-        prize += '  €';
+        //prize = prize.replace('DE EUROS', ' DE EUROS');
+
+        prize = prize
+          .trim()
+          .replaceAll('DE', '')
+          .replaceAll('EUROS', '')
+          .replaceAll('.', '');
+        prize = parseInt(prize);
       }
+      prize = (parseInt(prize) / 10).toLocaleString(); // Calculando el "décimo"
+      prize += '  €';
 
       let li = document.createElement('li');
       li.innerText = `${year} : ${prize}`;
