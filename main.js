@@ -33,8 +33,6 @@ async function loadNumbersData() {
       };
     });
   }
-
-  console.log(listNumbers);
 }
 
 async function fetchJson(jsonUrl) {
@@ -92,17 +90,13 @@ const search = () => {
   });
 
   if (found_numbers.length > 0) {
-    console.log('Existe el ', value);
     let ul = document.createElement('ul');
     found_numbers.forEach((number) => {
       const year = number.year;
-      debugger;
       let prize = number.prize;
       const isPremiaco = prize.includes('EUROS');
 
       if (isPremiaco) {
-        //prize = prize.replace('DE EUROS', ' DE EUROS');
-
         prize = prize
           .trim()
           .replaceAll('DE', '')
@@ -129,7 +123,6 @@ const search = () => {
     resultsDiv.appendChild(span);
     resultsDiv.appendChild(ul);
   } else {
-    console.log('NOOOO Existe el ', value);
     const span = document.createElement('span');
     span.innerHTML = '👎 Este número NUNCA ha sido premiado 🤷‍♂️';
     resultsDiv.appendChild(span);
