@@ -78,8 +78,8 @@ def write_numbers(list, year):
         numberJson = '{"n": "' + number.number + '", "p": "' + number.amount + '"}'
         if number != list[-1]:
             numberJson += ","
+            print(numberJson)
         textfile.write(numberJson)
-        #textfile.write(number.number + " " + number.amount + "\n")
     close = "]}"
     textfile.write(close)
     textfile.close()
