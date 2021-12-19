@@ -1,6 +1,6 @@
 import PyPDF2
 
-YEAR = "2011"
+YEAR = "2020"
 
 class Numero:
   def __init__(self, number, amount):
@@ -85,8 +85,10 @@ def write_numbers(list, year):
     textfile.close()
     print(f"Written file: {file}")
 
+
 def has_another_prize(pr):
     return ".000EUROS" in pr or ".000DE" in pr
+
 
 def process_page(pageObj, cleaned_list, unclassified):
     output = pageObj.extractText()

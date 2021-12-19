@@ -117,14 +117,14 @@ const search = () => {
       ul.appendChild(li);
     });
     const span = document.createElement('span');
-    span.textContent = `👍 ¡Yay! Este número fue premiado  ${
+    span.textContent = `👍 ¡Yay! El número (${value}) fue premiado  ${
       found_numbers.length > 1 ? 'los años' : 'el año'
     }: 🍾`;
     resultsDiv.appendChild(span);
     resultsDiv.appendChild(ul);
   } else {
     const span = document.createElement('span');
-    span.innerHTML = '👎 Este número NUNCA ha sido premiado 🤷‍♂️';
+    span.innerHTML = `👎 El número (${value}) NUNCA ha sido premiado 🤷‍♂️`;
     resultsDiv.appendChild(span);
   }
 };
